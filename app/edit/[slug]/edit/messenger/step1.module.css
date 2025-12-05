@@ -1,0 +1,153 @@
+.step1 {
+  position: fixed;
+  top: 100vh;
+  right: 35vw;
+  width: 30vw;
+  height: 98vh;
+  background-color: #fff;
+  z-index: 9000;
+  border-radius: 2vw;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.714);
+  border-top: 1px solid rgb(162, 160, 160);
+  background-color: #ededed;
+
+  transition: top 0.4s;
+  padding-bottom: 4vw;
+  overflow: hidden;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5vw;
+  /* height: 8vh; */
+  background-color: #fff;
+  font-size: 1.4vw;
+  font-weight: 600;
+  border-bottom: 1px solid rgb(215, 215, 215);
+}
+.header img {
+  width: 1.5svw;
+  cursor: pointer;
+}
+.header img:nth-of-type(1) {
+  opacity: 0;
+}
+.messengers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: flex-start;
+  padding: 1vw;
+  padding-top: 2vw;
+  height: 90vh;
+  /* overflow: scroll; */
+  padding-bottom: 3vw;
+}
+.messenger {
+  width: 49%;
+  background-color: #fff;
+  display: flex;
+  gap: 0.5vw;
+  justify-content: center;
+  padding: 1vw 0;
+  align-items: center;
+  font-size: 1.1vw;
+  font-weight: 400;
+  border-radius: 1vw;
+  margin-bottom: 0.5vw;
+}
+.messenger img {
+  width: 1.5vw;
+  margin-left: 0.7vw;
+}
+.buttonContainer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 3vw;
+  z-index: 10000;
+  background-color: #fff;
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid rgb(213, 213, 213);
+}
+/* ---------------- */
+/* ---------------- */
+/* ---------------- */
+/* ---------------- */
+@media screen and (max-width: 640px) {
+  .step1 {
+    position: fixed;
+    top: 100vh;
+    right: 0;
+    width: 100%;
+    height: 98vh;
+    background-color: #fff;
+    z-index: 9000;
+    border-radius: 10vw 10vw 0 0;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.714);
+    border-top: 1px solid rgb(162, 160, 160);
+    background-color: #ededed;
+
+    transition: top 0.4s;
+    padding-bottom: 10vw;
+    overflow: hidden;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0vw 8vw;
+    height: 8vh;
+    background-color: #fff;
+    font-size: 4.2vw;
+    font-weight: 600;
+    border-bottom: 1px solid rgb(215, 215, 215);
+  }
+  .header img {
+    width: 4vw;
+  }
+  .header img:nth-of-type(1) {
+    opacity: 0;
+  }
+  .messengers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: flex-start;
+    padding: 3vw;
+    padding-top: 5vw;
+    height: 90vh;
+    overflow: scroll;
+    padding-bottom: 10vw;
+  }
+  .messenger {
+    width: 49%;
+    background-color: #fff;
+    display: flex;
+    gap: 1.5vw;
+    justify-content: center;
+    padding: 3.5vw 0;
+    align-items: center;
+    font-size: 4vw;
+    font-weight: 400;
+    border-radius: 3vw;
+    margin-bottom: 2vw;
+  }
+  .messenger img {
+    width: 6vw;
+    margin-left: 2vw;
+  }
+  .buttonContainer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 3vw;
+    z-index: 10000;
+    background-color: #fff;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid rgb(213, 213, 213);
+  }
+}

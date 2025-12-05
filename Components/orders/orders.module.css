@@ -1,0 +1,42 @@
+.container {
+  padding: 1vw;
+  display: flex;
+  flex-wrap: wrap;
+}
+.box {
+  background-color: #c49696;
+  padding: 1vw;
+  border-radius: 1vw;
+  margin-bottom: 0.6vw;
+  margin-left: 1vw;
+}
+.cart {
+  background-color: #dab8b8;
+  padding: 1vw;
+  border-radius: 1vw;
+}
+.sendButton {
+  width: 100%;
+  border-radius: 1vw;
+  background-color: #2ac27c;
+  color: #fff;
+  font-weight: 600;
+  padding: 1vw;
+  margin-top: 1vw;
+}
+@media screen and (max-width: 640px) {
+  .container {
+    padding: 3vw;
+  }
+  .box {
+    background-color: #c49696;
+    padding: 3vw;
+    border-radius: 3vw;
+    margin-bottom: 2vw;
+  }
+  .cart {
+    background-color: #dab8b8;
+    padding: 3vw;
+    border-radius: 3vw;
+  }
+}

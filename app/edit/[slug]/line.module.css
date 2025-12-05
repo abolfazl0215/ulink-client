@@ -1,0 +1,33 @@
+.container {
+}
+.container img {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.space1 {
+  margin: 1vw 0;
+}
+.space2 {
+  margin: 2.8vw 0;
+}
+.space3 {
+  margin: 4vw 0;
+}
+.space4 {
+  margin: 5.5vw 0;
+}
+@media screen and (max-width: 640px) {
+  .space1 {
+    margin: 5vw 0;
+  }
+  .space2 {
+    margin: 10vw 0;
+  }
+  .space3 {
+    margin: 15vw 0;
+  }
+  .space4 {
+    margin: 20vw 0;
+  }
+}

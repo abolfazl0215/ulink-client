@@ -2,7 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: fontSemiBold;
+  src: url("./YekanBakh-SemiBold.woff2");
+}
+
 :root {
+  --font-inter: Inter, sans-serif;
+}
+
+body {
+  font-family: var(--font-inter);
+  scroll-behavior: smooth;
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -16,6 +30,7 @@
   }
 }
 
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +39,63 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+} */
+
+body {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* scroll-behavior: smooth !important; */
+}
+
+.MuiStepLabel-label {
+  font-family: fontSemiBold !important;
+  font-size: 1vw !important;
+}
+
+@media screen and (max-width: 640px) {
+  .MuiStepLabel-label {
+    font-family: fontSemiBold !important;
+    font-size: 3vw !important;
+  }
+}
+.MuiBox-root {
+  font-family: fontSemiBold !important;
+  font-size: 3vw !important;
+}
+
+#demo-simple-select-label {
+  font-family: fontSemiBold !important;
+  padding: 0vw !important;
+  font-size: 1vw;
+}
+#demo-simple-select {
+  padding: 1vw !important;
+  width: 5vw !important;
+  /* height: 10vw; */
+  align-items: center !important;
+}
+@media screen and (max-width: 640px) {
+  #demo-simple-select-label {
+    font-family: fontSemiBold !important;
+    padding: 0vw !important;
+    font-size: 3vw;
+  }
+  #demo-simple-select {
+    padding: 1vw !important;
+    width: 20vw !important;
+    height: 10vw;
+    align-items: center !important;
+  }
+}
+
+div:active {
+  opacity: 1;
+}
+div:focus {
+  opacity: 1;
 }

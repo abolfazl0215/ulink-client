@@ -1,0 +1,33 @@
+.video {
+  margin-bottom: 2vw;
+}
+.video h2 {
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.5vw;
+  color: #545454;
+  text-align: center;
+  margin-bottom: 2vw;
+}
+.video iframe {
+  width: 100%;
+  border-radius: 1vw;
+}
+
+@media screen and (max-width: 640px) {
+  .video {
+    margin-bottom: 3vw;
+  }
+  .video h2 {
+    width: 100%;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #545454;
+    text-align: center;
+    margin-bottom: 4vw;
+  }
+  .video iframe {
+    width: 100%;
+    border-radius: 3vw;
+  }
+}

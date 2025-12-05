@@ -1,0 +1,73 @@
+.addSection {
+  position: fixed;
+  top: 100vh;
+  right: 0;
+  width: 100%;
+  height: 98vh;
+  background-color: #fff;
+  z-index: 9000;
+  border-radius: 10vw 10vw 0 0;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.714);
+  border-top: 1px solid rgb(162, 160, 160);
+  background-color: #ededed;
+  overflow: hidden;
+  transition: top 0.4s;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0vw 8vw;
+  height: 8vh;
+  background-color: #fff;
+  font-size: 4.2vw;
+  font-weight: 600;
+  border-bottom: 1px solid rgb(215, 215, 215);
+}
+.header img {
+  width: 4vw;
+}
+.header img:nth-of-type(1) {
+  opacity: 0;
+}
+.blocks {
+  padding: 5vw;
+  overflow: scroll;
+  height: 90vh;
+  padding-bottom: 17vw;
+}
+.block {
+  background-color: #fff;
+  border-radius: 3vw;
+  margin-bottom: 2vw;
+  padding: 3vw;
+  display: flex;
+  align-items: center;
+  border: 1px solid rgb(221, 220, 220);
+  user-select: none;
+  cursor: pointer;
+}
+.block:hover {
+  background-color: #fff;
+  border-radius: 3vw;
+  margin-bottom: 2vw;
+  padding: 3vw;
+  display: flex;
+  align-items: center;
+  border: 2px solid rgb(0, 98, 255);
+  color: rgb(0, 98, 255);
+  user-select: none;
+  cursor: pointer;
+}
+.blocks img {
+  width: 7vw;
+  margin-left: 3vw;
+}
+.block div p:nth-of-type(1) {
+  font-size: 4vw;
+  font-weight: 500;
+}
+.block div p:nth-of-type(2) {
+  font-size: 3.6vw;
+  color: rgb(99, 99, 99);
+}

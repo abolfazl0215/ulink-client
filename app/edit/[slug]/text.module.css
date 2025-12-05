@@ -1,0 +1,57 @@
+.text {
+  margin-bottom: 2vw;
+}
+.text p {
+  color: rgb(78, 78, 78);
+}
+.size1 {
+  font-size: 0.9vw;
+}
+.size2 {
+  font-size: 1.1vw;
+}
+.size3 {
+  font-size: 1.4vw;
+}
+.size4 {
+  font-size: 3.9vw;
+  font-weight: 600;
+}
+.size5 {
+  font-size: 1.4vw;
+  font-weight: 600;
+}
+.size6 {
+  font-size: 1.8vw;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 640px) {
+  .text {
+    margin-bottom: 3vw;
+  }
+  .text p {
+    color: rgb(78, 78, 78);
+  }
+  .size1 {
+    font-size: 3.5vw;
+  }
+  .size2 {
+    font-size: 4vw;
+  }
+  .size3 {
+    font-size: 5vw;
+  }
+  .size4 {
+    font-size: 3.8vw;
+    font-weight: 600;
+  }
+  .size5 {
+    font-size: 4.5vw;
+    font-weight: 600;
+  }
+  .size6 {
+    font-size: 5.8vw;
+    font-weight: 700;
+  }
+}

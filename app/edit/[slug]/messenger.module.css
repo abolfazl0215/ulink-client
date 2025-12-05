@@ -1,0 +1,350 @@
+.messenger2column {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 2vw;
+  z-index: 999;
+}
+.messenger2column h2 {
+  width: 100%;
+  font-weight: 600;
+  font-size: 1.1vw;
+  color: #545454;
+  text-align: center;
+  margin-bottom: 1vw;
+}
+.messenger2column .button {
+  width: 49%;
+  display: flex;
+  padding: 1vw;
+  border-radius: 1vw;
+  justify-content: center;
+  margin-bottom: 1vw;
+  background-color: #e5e5e5;
+  position: relative;
+  overflow: hidden;
+}
+.messenger2column .button img {
+  width: 1.5vw;
+}
+.messenger2column .button p {
+  margin-right: 1vw;
+  font-size: 1vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* //////////////////////////// */
+/* //////////////////////////// */
+/* //////////////////////////// */
+
+.messenger1column {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 3vw;
+}
+.messenger1column h2 {
+  width: 100%;
+  font-weight: 600;
+  font-size: 5vw;
+  color: #545454;
+  text-align: center;
+  margin-bottom: 4vw;
+}
+.messenger1column .button {
+  width: 100%;
+  display: flex;
+  padding: 4vw 1vw;
+  border-radius: 3vw;
+  justify-content: center;
+  margin-bottom: 2vw;
+  background-color: #e5e5e5;
+}
+.messenger1column .button img {
+  width: 6vw;
+}
+.messenger1column .button p {
+  margin-right: 1vw;
+  font-size: 4vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 640px) {
+  .messenger2column {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 5vw;
+  }
+  .messenger2column h2 {
+    width: 100%;
+    font-weight: 500;
+    font-size: 4.5vw;
+    color: #545454;
+    text-align: center;
+    margin-bottom: 4vw;
+  }
+  .messenger2column .button {
+    width: 49%;
+    display: flex;
+    padding: 4vw 1vw;
+    border-radius: 3vw;
+    justify-content: center;
+    margin-bottom: 2vw;
+    background-color: #e5e5e5;
+  }
+  .messenger2column .button img {
+    width: 6vw;
+  }
+  .messenger2column .button p {
+    margin-right: 1vw;
+    font-size: 4vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* //////////////////////////// */
+  /* //////////////////////////// */
+  /* //////////////////////////// */
+
+  .messenger1column {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 3vw;
+  }
+  .messenger1column h2 {
+    width: 100%;
+    font-weight: 600;
+    font-size: 5vw;
+    color: #545454;
+    text-align: center;
+    margin-bottom: 4vw;
+  }
+  .messenger1column .button {
+    width: 100%;
+    display: flex;
+    padding: 4vw 1vw;
+    border-radius: 3vw;
+    justify-content: center;
+    margin-bottom: 2vw;
+    background-color: #e5e5e5;
+  }
+  .messenger1column .button img {
+    width: 6vw;
+  }
+  .messenger1column .button p {
+    margin-right: 1vw;
+    font-size: 4vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* animations ----------------------- */
+.blinking_element::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -20%;
+  width: 20%;
+  height: 150%;
+  transform: rotate(20deg);
+  background-color: white;
+  animation: blink 3s infinite linear;
+}
+
+.shake {
+  animation: shake 3s infinite;
+}
+.rotate {
+  animation: rotate 3s infinite;
+}
+.shakeX {
+  animation: shakeX 3s infinite;
+}
+.shakeY {
+  animation: shakeY 3s infinite;
+}
+
+@keyframes blink {
+  0% {
+    left: -100%;
+  }
+  1% {
+    left: -100%;
+  }
+  2% {
+    left: -100%;
+  }
+  3% {
+    left: -100%;
+  }
+  4% {
+    left: -100%;
+  }
+  70% {
+    left: -100%;
+  }
+  85% {
+    left: 120%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+.blinking_element::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 20%;
+  height: 160%;
+  transform: rotate(20deg);
+  background-color: white;
+  animation: blink 3s infinite linear;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  10%,
+  20%,
+  30%,
+  40%,
+  50%,
+  60% {
+    transform: translateX(0px);
+  }
+
+  80%,
+  100% {
+    transform: translateX(-4px);
+  }
+  70%,
+  90% {
+    transform: translateX(4px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: translateX(0);
+  }
+  10%,
+  20%,
+  30%,
+  40%,
+  50%,
+  60% {
+    transform: translateX(0px);
+  }
+
+  80%,
+  100% {
+    transform: rotate(3deg);
+  }
+  70%,
+  90% {
+    transform: rotate(-3deg);
+  }
+}
+@keyframes shakeX {
+  0% {
+    transform: translateX(0);
+  }
+  10%,
+  20%,
+  30%,
+  40%,
+  50%,
+  60%,
+  70% {
+    transform: translateX(0px);
+  }
+
+  80% {
+    transform: translateX(3px);
+  }
+  82.5% {
+    transform: translateX(-3px);
+  }
+  85% {
+    transform: translateX(3px);
+  }
+  87.5% {
+    transform: translateX(-3px);
+  }
+  90% {
+    transform: translateX(3px);
+  }
+  92.5% {
+    transform: translateX(-3px);
+  }
+  95% {
+    transform: translateX(3px);
+  }
+  97.5% {
+    transform: translateX(-3px);
+  }
+  100% {
+    transform: translateX(3px);
+  }
+}
+@keyframes shakeY {
+  0% {
+    transform: translateY(0);
+  }
+  10%,
+  20%,
+  30%,
+  40%,
+  50%,
+  60%,
+  70% {
+    transform: translateY(0px);
+  }
+
+  80% {
+    transform: translateY(3px);
+  }
+  82.5% {
+    transform: translateY(-3px);
+  }
+  85% {
+    transform: translateY(3px);
+  }
+  87.5% {
+    transform: translateY(-3px);
+  }
+  90% {
+    transform: translateY(3px);
+  }
+  92.5% {
+    transform: translateY(-3px);
+  }
+  95% {
+    transform: translateY(3px);
+  }
+  97.5% {
+    transform: translateY(-3px);
+  }
+  100% {
+    transform: translateY(3px);
+  }
+}

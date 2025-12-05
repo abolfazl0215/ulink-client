@@ -1,0 +1,145 @@
+.cardExamples {
+  padding: 5vw 18vw 0vw 18vw;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.rightSection {
+  width: 35%;
+  background-color: #ffffff;
+  padding: 2vw 2vw;
+  border-right: 1px solid rgb(215, 215, 215);
+}
+.rightSection p {
+  text-align: center;
+  font-size: 1vw;
+  margin-top: 3vw;
+  color: rgb(66, 97, 182);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.rightSection p:hover {
+  font-size: 1.2vw;
+}
+.cardExamples h2 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.8vw;
+  color: #325474;
+}
+.arrows {
+  display: flex;
+  justify-content: center;
+  margin-top: 3vw;
+}
+.arrows img {
+  width: 3vw;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.arrows img:hover {
+  width: 4vw;
+}
+.leftSection {
+  width: 65%;
+
+  /* background-color: #ffc6c6; */
+}
+.leftSectionSm {
+  display: none;
+
+  /* background-color: #ffc6c6; */
+}
+.slide {
+  background-color: #f3f3f3;
+  border: 1px solid #cccaca;
+  border-radius: 1vw;
+  z-index: -10 !important;
+  padding: 0.3vw;
+}
+.slide img {
+  width: 100%;
+  height: 10vw;
+  border-radius: 1vw;
+  border: 1px solid #cccaca;
+}
+
+@media screen and (max-width: 640px) {
+  .cardExamples {
+    padding: 10vw 5vw 0vw 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+  }
+  .rightSection {
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 2vw 2vw;
+    border-right: 0px solid rgb(215, 215, 215);
+    padding-bottom: 3vw;
+  }
+  .rightSection p {
+    text-align: center;
+    font-size: 3.5vw;
+    margin-top: 4vw;
+    color: rgb(66, 97, 182);
+    font-weight: 500;
+    cursor: pointer;
+    user-select: none;
+  }
+  .rightSection p:hover {
+    font-size: 4vw;
+  }
+  .cardExamples h2 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 5vw;
+    color: #325474;
+    user-select: none;
+  }
+  .arrows {
+    display: none;
+  }
+  .arrows img {
+    width: 3vw;
+  }
+  .leftSection {
+    display: none;
+
+    /* background-color: #ffc6c6; */
+  }
+  .leftSectionSm {
+    width: 100%;
+    display: block;
+
+    /* background-color: #ffc6c6; */
+  }
+
+  .slide {
+    background-color: #f3f3f300;
+    border: 1px solid #cccaca00;
+
+    border-radius: 3vw;
+    z-index: -10 !important;
+    padding: 1vw;
+    margin-top: 1vw;
+    margin-bottom: 10vw !important;
+  }
+  .slide img {
+    width: 100%;
+    height: 40vw;
+    border-radius: 3vw;
+    border: none;
+    box-shadow: 0 0 10px rgb(215, 215, 215);
+    object-fit: cover;
+  }
+  .slide img:nth-of-type(2) {
+    margin-top: 1.5vw !important;
+  }
+  .break {
+    display: none;
+  }
+}

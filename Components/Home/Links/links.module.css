@@ -1,0 +1,119 @@
+.links {
+  padding: 5vw 18vw 0vw 18vw;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3vw;
+}
+.rightSection {
+  width: 35%;
+  background-color: #ffffff;
+  padding: 2vw 2vw;
+  border-right: 1px solid rgb(215, 215, 215);
+}
+.rightSection p {
+  text-align: center;
+  font-size: 1vw;
+  margin-top: 1vw;
+  color: rgb(66, 97, 182);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.rightSection p:hover {
+  font-size: 1.2vw;
+}
+.rightSection h2 {
+  text-align: center;
+  font-weight: 800;
+  font-size: 1.8vw;
+  color: #325474;
+}
+.rightSection img {
+  width: 4vw;
+  margin: 0 auto;
+  margin-top: 1vw;
+  display: none;
+}
+.leftSection {
+  width: 65%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+.leftSection div {
+  width: 48%;
+  border-radius: 2vw;
+  font-size: 1.1vw;
+  font-weight: 600;
+  /* border: 1px solid #0064c0; */
+  background: linear-gradient(to left top, #006acc, #7ccdff);
+  padding: 1vw;
+  text-align: center;
+  color: #fff;
+  margin-top: 0.4vw;
+  cursor: pointer;
+  transition: all 0.5s !important;
+}
+.leftSection div:hover {
+  background: linear-gradient(to left top, #00488b, #007dcb);
+}
+
+@media screen and (max-width: 640px) {
+  .links {
+    padding: 10vw 5vw 0vw 5vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 9vw;
+  }
+  .rightSection {
+    width: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 2vw 2vw;
+    border-right: 0px solid rgb(215, 215, 215);
+  }
+  .rightSection p {
+    text-align: center;
+    font-size: 3.5vw;
+    margin-top: 4vw;
+    color: rgb(66, 97, 182);
+    font-weight: 500;
+    user-select: none;
+  }
+  .rightSection p:hover {
+    font-size: 4vw;
+  }
+  .rightSection h2 {
+    text-align: center;
+    font-weight: 800;
+    font-size: 5vw;
+    color: #325474;
+    user-select: none;
+  }
+  .leftSection {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .leftSection div {
+    width: 49%;
+    border-radius: 3vw;
+    font-size: 3.5vw;
+    font-weight: 500;
+    /* border: 1px solid #0064c0; */
+    background: linear-gradient(to left top, #006acc, #7ccdff);
+    padding: 3vw;
+    text-align: center;
+    color: #fff;
+    margin-top: 2vw;
+  }
+  .break {
+    display: none;
+  }
+}

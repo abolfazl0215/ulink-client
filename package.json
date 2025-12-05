@@ -9,13 +9,42 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.6",
+    "@mui/material": "^5.15.3",
+    "@mui/styled-engine-sc": "^6.0.0-alpha.11",
+    "@react-three/drei": "^9.99.0",
+    "@react-three/fiber": "^8.15.16",
+    "axios": "^1.6.5",
+    "browser-image-compression": "^2.0.2",
+    "firebase": "^12.6.0",
+    "formik": "^2.4.5",
+    "framer-motion": "^12.23.24",
+    "immutability-helper": "^3.1.1",
+    "jalali-moment": "^3.3.11",
+    "js-cookie": "^3.0.5",
+    "jwt-decode": "^4.0.0",
+    "lucide-react": "^0.555.0",
+    "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "14.0.4"
+    "react-beautiful-dnd": "^13.1.1",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-icons": "^5.0.1",
+    "react-pageflip": "^2.0.3",
+    "react-qr-code": "^2.0.12",
+    "react-spinners": "^0.13.8",
+    "styled-components": "^6.1.6",
+    "stylis-plugin-rtl": "^2.1.1",
+    "swiper": "^11.0.5",
+    "uuid": "^9.0.1",
+    "yup": "^1.3.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
     "postcss": "^8",
-    "tailwindcss": "^3.3.0"
+    "tailwindcss": "^3.3.0",
+    "typescript": "5.3.3"
   }
 }
