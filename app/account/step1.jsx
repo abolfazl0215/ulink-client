@@ -86,7 +86,7 @@ const Step1 = () => {
           className="MuiOutlinedInput-inputSizeSmall mt-[.5vw]"
           startAdornment={
             <InputAdornment sx={{ mr: 1 }} position="end">
-              ulinkk-front.onrender.com /
+              ulink-front.onrender.com /
             </InputAdornment>
           }
           endAdornment={

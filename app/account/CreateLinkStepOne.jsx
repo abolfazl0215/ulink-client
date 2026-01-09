@@ -140,7 +140,7 @@ const CreateLinkStepOne = ({ setStep }) => {
           <div className="relative flex items-center">
             {/* Prefix text */}
             <span className="absolute left-[3vw] lg:left-[1vw] text-[4vw] md:text-[2.5vw] lg:text-[1vw] text-[#C8C8D0] pointer-events-none z-10">
-              ulinkk-front.onrender.com/
+              ulink-front.onrender.com/
             </span>
 
             {/* Input field */}
