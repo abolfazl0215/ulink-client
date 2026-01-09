@@ -23,7 +23,7 @@ const Theme = ({
       setLoading(true);
       try {
         const res = await axios.post(
-          "https://http://localhost:3001/addTheme",
+          "https://ulinkk-back.onrender.com/addTheme",
           {
             address,
             theme,

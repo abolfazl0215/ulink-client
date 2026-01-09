@@ -15,7 +15,7 @@ const RemoveLink = ({ showRemoveLink, setShowRemoveLink }) => {
     setRemoveProgress(true);
     try {
       const response = await axios.post(
-        "https://http://localhost:3001/removeLink",
+        "https://ulinkk-back.onrender.com/removeLink",
         {
           link: showRemoveLink,
           userId: loginContext.user._id,

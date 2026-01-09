@@ -42,7 +42,7 @@ const Step2 = ({
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://http://localhost:3001/addMessenger",
+        "https://ulinkk-back.onrender.com/addMessenger",
         {
           address,
           type: "line",

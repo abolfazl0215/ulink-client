@@ -24,7 +24,7 @@ const ProductContextComponent = ({ children }) => {
 
   const getPlans = async () => {
     const response = await axios.get(
-      "https://http://localhost:3001/getProducts",
+      "https://ulinkk-back.onrender.com/getProducts",
     );
     setPlans(response.data.plans);
     console.log("plans :", response.data);

@@ -61,7 +61,7 @@ const CreateLinkStepOne = ({ setStep }) => {
     linkContext.setLink(e.target.value);
     try {
       const response = await axios.post(
-        "https://http://localhost:3001/findLink",
+        "https://ulinkk-back.onrender.com/findLink",
         { link: e.target.value.trim() },
         { headers: { "Content-Type": "application/json" } },
       );
@@ -140,7 +140,7 @@ const CreateLinkStepOne = ({ setStep }) => {
           <div className="relative flex items-center">
             {/* Prefix text */}
             <span className="absolute left-[3vw] lg:left-[1vw] text-[4vw] md:text-[2.5vw] lg:text-[1vw] text-[#C8C8D0] pointer-events-none z-10">
-              ulinkk.liara.run/
+              ulinkk-front.onrender.com/
             </span>
 
             {/* Input field */}

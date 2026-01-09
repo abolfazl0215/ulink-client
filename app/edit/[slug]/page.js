@@ -228,7 +228,7 @@ const Drag = ({ params }) => {
   const getData = async () => {
     console.log("get starttt");
     const response = await axios.post(
-      "https://http://localhost:3001/getLink",
+      "https://ulinkk-back.onrender.com/getLink",
       {
         link: params.slug,
       },
@@ -266,7 +266,7 @@ const Drag = ({ params }) => {
   const checkToken = async () => {
     try {
       const response = await axios.get(
-        "https://http://localhost:3001/checkExistUser",
+        "https://ulinkk-back.onrender.com/checkExistUser",
         {
           withCredentials: true,
         },
@@ -333,7 +333,7 @@ const Drag = ({ params }) => {
 
     try {
       const res = await axios.post(
-        "https://http://localhost:3001/setDrag",
+        "https://ulinkk-back.onrender.com/setDrag",
         {
           address: params.slug,
           sections: updatedItems,

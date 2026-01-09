@@ -190,12 +190,12 @@ const Step2 = ({
 
       setLoading(true);
       const response = await axios.post(
-        "https://http://localhost:3001/upload2",
+        "https://ulinkk-back.onrender.com/upload2",
         formData,
       );
       try {
         const res = await axios.post(
-          "https://http://localhost:3001/addMessenger",
+          "https://ulinkk-back.onrender.com/addMessenger",
           {
             address,
             type: "banner",

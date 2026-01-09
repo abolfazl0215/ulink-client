@@ -35,7 +35,7 @@ const QrCode = ({ value, setQrCode }) => {
           <button
             onClick={() => {
               navigator.clipboard.writeText(
-                `http://localhost:3001/${value}`,
+                `https://ulinkk-back.onrender.com/${value}`,
               );
               toast.success("Copied to clipboard");
             }}>

@@ -45,7 +45,7 @@ const Step1 = ({ setStep }) => {
     linkContext.setLink(e.target.value);
     try {
       const response = await axios.post(
-        "https://http://localhost:3001/findLink",
+        "https://ulinkk-back.onrender.com/findLink",
         { link: e.target.value.trim() },
         { headers: { "Content-Type": "application/json" } },
       );

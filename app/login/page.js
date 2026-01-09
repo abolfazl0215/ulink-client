@@ -18,7 +18,9 @@ export default function LoginPage() {
   const router = useRouter();
   useEffect(() => {
     axios
-      .get("https://http://localhost:3001/me", { withCredentials: true })
+      .get("https://ulinkk-back.onrender.com/me", {
+        withCredentials: true,
+      })
       .then((res) => {
         if (res.data.loggedIn) {
           router.push("/account");
@@ -47,7 +49,7 @@ export default function LoginPage() {
     try {
       const result = await signInWithPopup(auth, provider);
       const response = await axios.post(
-        "https://http://localhost:3001/login",
+        "https://ulinkk-back.onrender.com/login",
         { email: result.user.email },
         {
           headers: { "Content-Type": "application/json" },

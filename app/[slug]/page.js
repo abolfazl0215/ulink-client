@@ -168,10 +168,13 @@ const yekan = localFont({
 });
 
 async function getData() {
-  const res = await fetch("https://http://localhost:3001/getLinks", {
-    cache: "no-store",
-    // next: { revalidate: 15 }, // باعث میشه داده ها تا 15 ثانیه کش شوند
-  });
+  const res = await fetch(
+    "https://ulinkk-back.onrender.com/getLinks",
+    {
+      cache: "no-store",
+      // next: { revalidate: 15 }, // باعث میشه داده ها تا 15 ثانیه کش شوند
+    },
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -560,7 +563,7 @@ const Page = async ({ params }) => {
               </>
             ))}
           <a
-            href="http://localhost:3001"
+            href="https://ulinkk-back.onrender.com"
             className={styles.createdByMe}>
             <span>Created by ULink</span>
           </a>

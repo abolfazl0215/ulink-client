@@ -227,12 +227,12 @@ const Step2 = ({
       setLoading(true);
       if (!preview.includes("https")) {
         const response = await axios.post(
-          "https://http://localhost:3001/upload2",
+          "https://ulinkk-back.onrender.com/upload2",
           formData,
         );
         try {
           const res = await axios.post(
-            "https://http://localhost:3001/setEdit",
+            "https://ulinkk-back.onrender.com/setEdit",
             {
               uniqueId: editContext.item.uniqueId,
               address,
@@ -256,7 +256,7 @@ const Step2 = ({
         try {
           setLoading(true);
           const res = await axios.post(
-            "https://http://localhost:3001/setEdit",
+            "https://ulinkk-back.onrender.com/setEdit",
             {
               uniqueId: editContext.item.uniqueId,
               address,
@@ -287,7 +287,7 @@ const Step2 = ({
   const handleDeleteBlock = async () => {
     try {
       const response = await axios.post(
-        "https://http://localhost:3001/deleteItem",
+        "https://ulinkk-back.onrender.com/deleteItem",
         {
           address,
           id: editContext.item.uniqueId,

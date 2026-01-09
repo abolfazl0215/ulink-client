@@ -168,10 +168,13 @@ const yekan = localFont({
 });
 
 async function getData() {
-  const res = await fetch("https://http://localhost:3001/getLinks", {
-    cache: "no-store",
-    // next: { revalidate: 15 },
-  });
+  const res = await fetch(
+    "https://ulinkk-back.onrender.com/getLinks",
+    {
+      cache: "no-store",
+      // next: { revalidate: 15 },
+    },
+  );
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

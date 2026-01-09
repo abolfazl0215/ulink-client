@@ -44,7 +44,7 @@ const Step1 = () => {
     linkContext.setLink(e.target.value);
     try {
       const response = await axios.post(
-        "https://http://localhost:3001/findLink",
+        "https://ulinkk-back.onrender.com/findLink",
         { link: e.target.value.trim() },
         { headers: { "Content-Type": "application/json" } },
       );
@@ -86,7 +86,7 @@ const Step1 = () => {
           className="MuiOutlinedInput-inputSizeSmall mt-[.5vw]"
           startAdornment={
             <InputAdornment sx={{ mr: 1 }} position="end">
-              ulinkk.liara.run /
+              ulinkk-front.onrender.com /
             </InputAdornment>
           }
           endAdornment={

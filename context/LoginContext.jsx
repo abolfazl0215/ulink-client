@@ -35,7 +35,7 @@ const LoginContextComponent = ({ children }) => {
 
   const getUser = async () => {
     const response = await axios.get(
-      "https://http://localhost:3001/me",
+      "https://ulinkk-back.onrender.com/me",
       {
         withCredentials: true,
       },

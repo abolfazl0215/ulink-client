@@ -13,7 +13,7 @@ const Logout = ({ showLogout, setShowLogout }) => {
     setLogoutProcess(true);
     try {
       const response = await axios.get(
-        "https://http://localhost:3001/logout",
+        "https://ulinkk-back.onrender.com/logout",
         {
           withCredentials: true,
         },

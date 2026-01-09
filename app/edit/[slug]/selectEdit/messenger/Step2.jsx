@@ -258,7 +258,7 @@ const Step2 = ({
       try {
         console.log("address:", address);
         const res = await axios.post(
-          "https://http://localhost:3001/setEdit",
+          "https://ulinkk-back.onrender.com/setEdit",
           {
             uniqueId: editContext.item.uniqueId,
             address: address,
@@ -283,7 +283,7 @@ const Step2 = ({
   const handleDeleteBlock = async () => {
     try {
       const response = await axios.post(
-        "https://http://localhost:3001/deleteItem",
+        "https://ulinkk-back.onrender.com/deleteItem",
         {
           address,
           id: editContext.item.uniqueId,
