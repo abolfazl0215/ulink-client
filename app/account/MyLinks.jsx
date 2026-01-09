@@ -58,7 +58,7 @@ const MyLinks = ({ links, setShowRemoveLink, setQrCode }) => {
             </button>
             <div className="bg-[#F9F9FA] p-[3vw] md:p-[2vw] lg:p-[1vw] flex justify-between rounded-lg items-center w-full">
               <p className="text-[#9C9CAB] text-[4vw] md:text-[2.2vw] lg:text-[1vw]">
-                ulink-front.onrender.com/{" "}
+                ulink-client.onrender.com/{" "}
                 <span className="text-[#2F2F37]">
                   {link?.address}
                 </span>
@@ -66,7 +66,7 @@ const MyLinks = ({ links, setShowRemoveLink, setQrCode }) => {
               <svg
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    `https://ulink-front.onrender.com/${link?.address}`,
+                    `https://ulink-client.onrender.com/${link?.address}`,
                   );
                   toast.success("Link copied to clipboard!");
                 }}
