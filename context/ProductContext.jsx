@@ -24,7 +24,7 @@ const ProductContextComponent = ({ children }) => {
 
   const getPlans = async () => {
     const response = await axios.get(
-      "https://ulinkkk.liara.run/getProducts",
+      "https://http://localhost:3001/getProducts",
     );
     setPlans(response.data.plans);
     console.log("plans :", response.data);

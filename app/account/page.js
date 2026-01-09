@@ -38,7 +38,7 @@ const Account = () => {
       setLoadingLinks(true);
       axios
         .post(
-          "https://ulinkkk.liara.run/getMyLinks",
+          "https://http://localhost:3001/getMyLinks",
           { links: linksPure },
           {
             headers: { "Content-Type": "application/json" },
@@ -62,7 +62,7 @@ const Account = () => {
   const checkToken = async () => {
     try {
       const response = await axios.get(
-        "https://ulinkkk.liara.run/checkExistUser",
+        "https://http://localhost:3001/checkExistUser",
         {
           withCredentials: true,
         },

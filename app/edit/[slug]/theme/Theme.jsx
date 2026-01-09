@@ -23,7 +23,7 @@ const Theme = ({
       setLoading(true);
       try {
         const res = await axios.post(
-          "https://ulinkkk.liara.run/addTheme",
+          "https://http://localhost:3001/addTheme",
           {
             address,
             theme,

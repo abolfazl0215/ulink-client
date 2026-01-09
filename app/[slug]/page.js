@@ -168,7 +168,7 @@ const yekan = localFont({
 });
 
 async function getData() {
-  const res = await fetch("https://ulinkkk.liara.run/getLinks", {
+  const res = await fetch("https://http://localhost:3001/getLinks", {
     cache: "no-store",
     // next: { revalidate: 15 }, // باعث میشه داده ها تا 15 ثانیه کش شوند
   });
@@ -560,7 +560,7 @@ const Page = async ({ params }) => {
               </>
             ))}
           <a
-            href="https://ulinkk.liara.run"
+            href="http://localhost:3001"
             className={styles.createdByMe}>
             <span>Created by ULink</span>
           </a>

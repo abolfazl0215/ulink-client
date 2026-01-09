@@ -168,7 +168,7 @@ const Font = ({
       setLoading(true);
       try {
         const res = await axios.post(
-          "https://ulinkkk.liara.run/setFont",
+          "https://http://localhost:3001/setFont",
           {
             address,
             font,

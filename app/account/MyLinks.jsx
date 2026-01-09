@@ -66,7 +66,7 @@ const MyLinks = ({ links, setShowRemoveLink, setQrCode }) => {
               <svg
                 onClick={() => {
                   navigator.clipboard.writeText(
-                    `https://ulinkk.liara.run/${link?.address}`,
+                    `http://localhost:3001/${link?.address}`,
                   );
                   toast.success("Link copied to clipboard!");
                 }}

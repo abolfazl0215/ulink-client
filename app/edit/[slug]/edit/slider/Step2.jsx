@@ -273,7 +273,7 @@ const Step2 = ({
           formData.append("image", s.imageUrl);
 
           const response = await axios.post(
-            "https://ulinkkk.liara.run/upload2",
+            "https://http://localhost:3001/upload2",
             formData,
           );
           const copy = [...selectedMessenger];
@@ -311,7 +311,7 @@ const Step2 = ({
             formData.append("image", s.imageUrl);
 
             const response = await axios.post(
-              "https://ulinkkk.liara.run/upload2",
+              "https://http://localhost:3001/upload2",
               formData,
             );
 
@@ -326,7 +326,7 @@ const Step2 = ({
         console.log("step22222");
 
         const res = await axios.post(
-          "https://ulinkkk.liara.run/addMessenger",
+          "https://http://localhost:3001/addMessenger",
           {
             address,
             type: "slider",

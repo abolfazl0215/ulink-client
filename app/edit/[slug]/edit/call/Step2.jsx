@@ -178,7 +178,7 @@ const Step2 = ({
       setLoading(true);
       try {
         const res = await axios.post(
-          "https://ulinkkk.liara.run/addMessenger",
+          "https://http://localhost:3001/addMessenger",
           {
             address,
             type: "call",

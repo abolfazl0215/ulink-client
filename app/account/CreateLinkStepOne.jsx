@@ -61,7 +61,7 @@ const CreateLinkStepOne = ({ setStep }) => {
     linkContext.setLink(e.target.value);
     try {
       const response = await axios.post(
-        "https://ulinkkk.liara.run/findLink",
+        "https://http://localhost:3001/findLink",
         { link: e.target.value.trim() },
         { headers: { "Content-Type": "application/json" } },
       );

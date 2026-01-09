@@ -266,7 +266,7 @@ const Step2 = ({
   const handleDeleteBlock = async () => {
     try {
       const response = await axios.post(
-        "https://ulinkkk.liara.run/deleteItem",
+        "https://http://localhost:3001/deleteItem",
         {
           address,
           id: editContext.item.uniqueId,
@@ -330,7 +330,7 @@ const Step2 = ({
             let response;
             try {
               response = await axios.post(
-                "https://ulinkkk.liara.run/upload2",
+                "https://http://localhost:3001/upload2",
                 formData,
               );
             } catch (error) {
@@ -352,7 +352,7 @@ const Step2 = ({
         console.log("step22222");
 
         const res = await axios.post(
-          "https://ulinkkk.liara.run/setEdit",
+          "https://http://localhost:3001/setEdit",
           {
             uniqueId: editContext.item.uniqueId,
             address,

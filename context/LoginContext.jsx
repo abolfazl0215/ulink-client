@@ -34,9 +34,12 @@ const LoginContextComponent = ({ children }) => {
   const [address, setAddress] = useState("");
 
   const getUser = async () => {
-    const response = await axios.get("https://ulinkkk.liara.run/me", {
-      withCredentials: true,
-    });
+    const response = await axios.get(
+      "https://http://localhost:3001/me",
+      {
+        withCredentials: true,
+      },
+    );
 
     if (response.data.loggedIn) {
       console.log("// کاربر لاگین است");

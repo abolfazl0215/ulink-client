@@ -65,7 +65,7 @@ const LinkContextComponent = ({ children }) => {
 
       // آپلود تصویر
       const response = await axios.post(
-        "https://ulinkkk.liara.run/upload2",
+        "https://http://localhost:3001/upload2",
         formData, // فایل + سایر فیلدها
         {
           timeout: 30000,
@@ -81,7 +81,7 @@ const LinkContextComponent = ({ children }) => {
 
       // ساخت لینک جدید
       const response2 = await axios.post(
-        "https://ulinkkk.liara.run/newLink",
+        "https://http://localhost:3001/newLink",
         {
           userId: loginContext.user._id,
           title,

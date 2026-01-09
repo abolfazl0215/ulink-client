@@ -168,7 +168,7 @@ const yekan = localFont({
 });
 
 async function getData() {
-  const res = await fetch("https://ulinkkk.liara.run/getLinks", {
+  const res = await fetch("https://http://localhost:3001/getLinks", {
     cache: "no-store",
     // next: { revalidate: 15 },
   });

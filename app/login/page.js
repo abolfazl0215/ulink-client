@@ -18,7 +18,7 @@ export default function LoginPage() {
   const router = useRouter();
   useEffect(() => {
     axios
-      .get("https://ulinkkk.liara.run/me", { withCredentials: true })
+      .get("https://http://localhost:3001/me", { withCredentials: true })
       .then((res) => {
         if (res.data.loggedIn) {
           router.push("/account");
@@ -47,7 +47,7 @@ export default function LoginPage() {
     try {
       const result = await signInWithPopup(auth, provider);
       const response = await axios.post(
-        "https://ulinkkk.liara.run/login",
+        "https://http://localhost:3001/login",
         { email: result.user.email },
         {
           headers: { "Content-Type": "application/json" },

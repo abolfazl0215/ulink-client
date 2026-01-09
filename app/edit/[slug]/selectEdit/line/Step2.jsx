@@ -51,7 +51,7 @@ const Step2 = ({
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://ulinkkk.liara.run/setEdit",
+        "https://http://localhost:3001/setEdit",
         {
           uniqueId: editContext.item.uniqueId,
           address,
@@ -76,7 +76,7 @@ const Step2 = ({
   const handleDeleteBlock = async () => {
     try {
       const response = await axios.post(
-        "https://ulinkkk.liara.run/deleteItem",
+        "https://http://localhost:3001/deleteItem",
         {
           address,
           id: editContext.item.uniqueId,

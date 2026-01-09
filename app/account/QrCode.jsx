@@ -35,7 +35,7 @@ const QrCode = ({ value, setQrCode }) => {
           <button
             onClick={() => {
               navigator.clipboard.writeText(
-                `https://ULinkk.liara.run/${value}`,
+                `http://localhost:3001/${value}`,
               );
               toast.success("Copied to clipboard");
             }}>

@@ -228,7 +228,7 @@ const Drag = ({ params }) => {
   const getData = async () => {
     console.log("get starttt");
     const response = await axios.post(
-      "https://ulinkkk.liara.run/getLink",
+      "https://http://localhost:3001/getLink",
       {
         link: params.slug,
       },
@@ -248,10 +248,10 @@ const Drag = ({ params }) => {
   };
 
   useEffect(() => {
-    // if (!loginContext.user) {
-    //   toast.error("ابتدا وارد شوید");
-    //   router.push("/login");
-    // }
+    if (!loginContext.user) {
+      toast.error("ابتدا وارد شوید");
+      router.push("/login");
+    }
     if (
       loginContext.user &&
       loginContext.user.links &&
@@ -266,7 +266,7 @@ const Drag = ({ params }) => {
   const checkToken = async () => {
     try {
       const response = await axios.get(
-        "https://ulinkkk.liara.run/checkExistUser",
+        "https://http://localhost:3001/checkExistUser",
         {
           withCredentials: true,
         },
@@ -333,7 +333,7 @@ const Drag = ({ params }) => {
 
     try {
       const res = await axios.post(
-        "https://ulinkkk.liara.run/setDrag",
+        "https://http://localhost:3001/setDrag",
         {
           address: params.slug,
           sections: updatedItems,

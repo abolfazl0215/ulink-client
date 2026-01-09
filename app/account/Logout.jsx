@@ -13,7 +13,7 @@ const Logout = ({ showLogout, setShowLogout }) => {
     setLogoutProcess(true);
     try {
       const response = await axios.get(
-        "https://ulinkkk.liara.run/logout",
+        "https://http://localhost:3001/logout",
         {
           withCredentials: true,
         },
