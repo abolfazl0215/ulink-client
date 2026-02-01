@@ -81,7 +81,7 @@ export default function LoginPage() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.12,
         delayChildren: 0.1,
       },
     },
@@ -100,13 +100,13 @@ export default function LoginPage() {
   };
 
   const cardVariants = {
-    hidden: { opacity: 0, scale: 0.9, y: 30 },
+    hidden: { opacity: 0, scale: 0.95, y: 20 },
     visible: {
       opacity: 1,
       scale: 1,
       y: 0,
       transition: {
-        duration: 0.6,
+        duration: 0.5,
         ease: [0.43, 0.13, 0.23, 0.96],
       },
     },
@@ -124,6 +124,7 @@ export default function LoginPage() {
     },
     hover: {
       scale: 1.02,
+      y: -2,
       transition: {
         duration: 0.2,
       },
@@ -145,7 +146,6 @@ export default function LoginPage() {
     },
     hover: {
       scale: 1.1,
-      rotate: -5,
       transition: {
         duration: 0.2,
       },
@@ -154,31 +154,60 @@ export default function LoginPage() {
 
   return (
     <motion.div
-      className="min-h-screen bg-[#3AC481] flex items-center justify-center p-4"
+      className="min-h-screen bg-gradient-to-br from-slate-50 via-emerald-50 to-teal-50 flex items-center justify-center p-4 relative overflow-hidden"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}>
+      {/* Animated background elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.1, 0.2, 0.1],
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="absolute top-1/4 -left-1/4 w-96 h-96 bg-emerald-200/40 rounded-full blur-3xl"
+        />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.1, 0.15, 0.1],
+          }}
+          transition={{
+            duration: 10,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+          className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl"
+        />
+      </div>
+
       <motion.div
-        className="bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-md w-full relative"
+        className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border-2 border-white/60 p-8 md:p-12 max-w-md w-full relative z-10"
         variants={cardVariants}
         initial="hidden"
         animate="visible">
         {/* Back Button */}
         <motion.button
           onClick={handleBack}
-          className="absolute top-6 left-6 text-[#005822] hover:text-[#3AC481] transition-colors duration-200"
+          className="absolute top-6 left-6 text-emerald-700 hover:text-emerald-600 transition-colors duration-200 bg-white/60 backdrop-blur-sm p-2 rounded-full border-2 border-white/80 hover:border-emerald-200 shadow-lg"
           variants={backButtonVariants}
           initial="hidden"
           animate="visible"
           whileHover="hover"
           whileTap={{ scale: 0.9 }}>
           <svg
-            width="24"
-            height="24"
+            width="20"
+            height="20"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            strokeWidth="2"
+            strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round">
             <path d="M19 12H5M12 19l-7-7 7-7" />
@@ -187,42 +216,50 @@ export default function LoginPage() {
 
         {/* Logo/Brand */}
         <motion.div
-          className="text-center mb-8 mt-8"
+          className="text-center mb-10 mt-8"
           variants={containerVariants}
           initial="hidden"
           animate="visible">
           <motion.div
-            onClick={() => router.push("/account")}
-            className="text-5xl font-bold text-[#3AC481] mb-4 tracking-wider cursor-pointer"
+            onClick={() => router.push("/")}
+            className="text-5xl md:text-6xl font-black bg-gradient-to-r from-emerald-600 to-emerald-700 bg-clip-text text-transparent mb-4 tracking-tight cursor-pointer inline-block"
             variants={itemVariants}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}>
             ULink
           </motion.div>
           <motion.div
-            className="text-2xl text-[#005822] font-medium"
+            className="text-2xl md:text-3xl text-slate-900 font-bold mb-2"
             variants={itemVariants}>
             Welcome
           </motion.div>
           <motion.div
-            className="text-gray-500 mt-2 text-sm"
+            className="text-slate-600 mt-2 text-sm font-medium"
             variants={itemVariants}>
-            Sign in to continue
+            Sign in to manage your links
           </motion.div>
         </motion.div>
+
+        {/* Decorative line */}
+        <motion.div
+          className="w-16 h-1 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full mx-auto mb-8"
+          initial={{ width: 0 }}
+          animate={{ width: 64 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        />
 
         {/* Google Login Button */}
         <motion.button
           onClick={handleGoogleLogin}
-          className="w-full bg-white border-2 border-gray-200 hover:border-[#3AC481] text-gray-700 font-semibold py-4 px-6 rounded-xl flex items-center justify-center gap-3 transition-all duration-300 hover:shadow-lg group"
+          className="w-full bg-white/90 backdrop-blur-sm border-2 border-white/80 hover:border-emerald-300 text-slate-800 font-bold py-4 px-6 rounded-2xl flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl group"
           variants={buttonVariants}
           initial="hidden"
           animate="visible"
           whileHover="hover"
           whileTap="tap">
           <motion.svg
-            width="20"
-            height="20"
+            width="24"
+            height="24"
             viewBox="0 0 20 20"
             fill="none"
             whileHover={{ rotate: 360 }}
@@ -244,21 +281,75 @@ export default function LoginPage() {
               fill="#EA4335"
             />
           </motion.svg>
-          <span className="group-hover:text-[#005822] transition-colors duration-200">
+          <span className="group-hover:text-emerald-700 transition-colors duration-200 text-base">
             Continue with Google
           </span>
         </motion.button>
 
-        {/* Footer Text */}
+        {/* Divider */}
         <motion.div
-          className="text-center mt-8"
+          className="flex items-center gap-4 my-6"
           variants={itemVariants}
           initial="hidden"
           animate="visible"
+          transition={{ delay: 0.5 }}>
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+          <span className="text-xs text-slate-500 font-medium">
+            SECURE LOGIN
+          </span>
+          <div className="flex-1 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent"></div>
+        </motion.div>
+
+        {/* Features */}
+        <motion.div
+          className="grid grid-cols-2 gap-3 mb-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           transition={{ delay: 0.6 }}>
-          <p className="text-sm text-gray-500">
-            Secure login with your Google account
+          {[
+            { icon: "🔒", text: "Secure" },
+            { icon: "⚡", text: "Fast" },
+            { icon: "🌐", text: "Global" },
+            { icon: "✨", text: "Free" },
+          ].map((feature, i) => (
+            <motion.div
+              key={i}
+              variants={itemVariants}
+              className="flex items-center gap-2 bg-white/60 backdrop-blur-sm border-2 border-white/70 rounded-xl px-3 py-2 shadow-sm">
+              <span className="text-lg">{feature.icon}</span>
+              <span className="text-xs font-bold text-slate-700">
+                {feature.text}
+              </span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Footer Text */}
+        <motion.div
+          className="text-center mt-6"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ delay: 0.7 }}>
+          <p className="text-sm text-slate-600 font-medium">
+            Your data is protected with enterprise-grade security
           </p>
+          <div className="flex items-center justify-center gap-1 mt-2">
+            <svg
+              className="w-4 h-4 text-emerald-600"
+              fill="currentColor"
+              viewBox="0 0 20 20">
+              <path
+                fillRule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clipRule="evenodd"
+              />
+            </svg>
+            <span className="text-xs text-emerald-700 font-bold">
+              Verified & Trusted
+            </span>
+          </div>
         </motion.div>
       </motion.div>
     </motion.div>
