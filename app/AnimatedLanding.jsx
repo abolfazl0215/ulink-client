@@ -33,7 +33,7 @@ const scaleIn = {
 
 export default function AnimatedLanding() {
   return (
-    <div className="w-full relative overflow-hidden">
+    <div className="w-full relative overflow-hidden grid-bg">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <motion.div
