@@ -248,20 +248,25 @@ const Drag = ({ params }) => {
   };
 
   useEffect(() => {
-    if (!loginContext.user) {
-      toast.error("ابتدا وارد شوید");
-      router.push("/login");
-    }
-    if (
-      loginContext.user &&
-      loginContext.user.links &&
-      loginContext.user.links[0] &&
-      !loginContext.user.links.find((f) => f == params.slug)
-    ) {
-      toast.error("شما اجازه تغییر این لینک را ندارید");
-      router.push("/");
-    }
-  });
+    // تایمر برای چک کردن با تاخیر
+    const timer = setTimeout(() => {
+      if (!loginContext.user) {
+        toast.error("ابتدا وارد شوید");
+        router.push("/login");
+      }
+      if (
+        loginContext.user &&
+        loginContext.user.links &&
+        loginContext.user.links[0] &&
+        !loginContext.user.links.find((f) => f == params.slug)
+      ) {
+        toast.error("شما اجازه تغییر این لینک را ندارید");
+        router.push("/");
+      }
+    }, 1000); // 1 ثانیه تاخیر
+
+    return () => clearTimeout(timer);
+  }, [loginContext.user, params.slug, router]);
 
   const checkToken = async () => {
     try {
@@ -356,12 +361,12 @@ const Drag = ({ params }) => {
             font == "estedad"
               ? estedad.className
               : font == "mikhak"
-              ? mikhak.className
-              : font == "aseman"
-              ? aseman.className
-              : font == "yekan"
-              ? yekan.className
-              : ""
+                ? mikhak.className
+                : font == "aseman"
+                  ? aseman.className
+                  : font == "yekan"
+                    ? yekan.className
+                    : ""
           }>
           {/* <Navbar /> */}
           <AddSection
@@ -787,10 +792,10 @@ const Drag = ({ params }) => {
                                           color: "#fff",
                                         }
                                       : theme == "bg_animation_3"
-                                      ? {
-                                          color: "#fff",
-                                        }
-                                      : {}
+                                        ? {
+                                            color: "#fff",
+                                          }
+                                        : {}
                                   }>
                                   {item.title}
                                 </p>
@@ -801,14 +806,14 @@ const Drag = ({ params }) => {
                                           color: "#fff",
                                         }
                                       : theme == "bg_animation_3"
-                                      ? {
-                                          color: "#fff",
-                                        }
-                                      : theme == "bg_animation_2"
-                                      ? {
-                                          color: "#deeafc",
-                                        }
-                                      : {}
+                                        ? {
+                                            color: "#fff",
+                                          }
+                                        : theme == "bg_animation_2"
+                                          ? {
+                                              color: "#deeafc",
+                                            }
+                                          : {}
                                   }>
                                   {item.subTitle}
                                 </p>

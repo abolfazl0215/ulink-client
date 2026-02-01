@@ -16,6 +16,7 @@ import EditSlider from "./slider/EditSlider";
 import EditMessenger from "./messenger/EditMessenger";
 import EditLine from "./line/EditLine";
 import { X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const AddSection = ({
   showAddSection,
@@ -34,15 +35,13 @@ const AddSection = ({
     {
       type: "socialMedia",
       name: "Social Networks & Services",
-      description:
-        "Guide your audience to your social media accounts",
+      description: "Guide your audience to your social media accounts",
       logo: "/icons/socialMediaColor.svg",
     },
     {
       type: "call",
       name: "Contact & Communication",
-      description:
-        "Connect via mobile number, SMS, landline, and more",
+      description: "Connect via mobile number, SMS, landline, and more",
       logo: "/icons/callColor.svg",
     },
     {
@@ -84,15 +83,13 @@ const AddSection = ({
     {
       type: "text",
       name: "Text or Description",
-      description:
-        "Any text including biography, description, and more",
+      description: "Any text including biography, description, and more",
       logo: "/icons/textColor.svg",
     },
     {
       type: "question",
       name: "FAQ",
-      description:
-        "Ready-made template for answering frequently asked questions",
+      description: "Ready-made template for answering frequently asked questions",
       logo: "/icons/questionColor.svg",
     },
     {
@@ -111,7 +108,6 @@ const AddSection = ({
 
   // select section for add web page
   const [section, setSection] = useState("");
-  // const [section, setSection] = useState("");
 
   return (
     <div>
@@ -196,57 +192,75 @@ const AddSection = ({
       ) : (
         ""
       )}
-      {/* add sectionmodal page */}
 
-      <div
-        onClick={() => setShowAddSection(false)}
-        style={
-          showAddSection
-            ? {
-                // top: "0vh",
-                display: "block",
-                opacity: 1,
-                transition: ".4s all ease-out",
-                // boxShadow: "0 0 50px rgba(0, 0, 0, 0.714)",
-              }
-            : {}
-        }
-        className="fixed hidden opacity-0  w-[100vw] h-[100vh] bg-black/10 backdrop-blur-sm z-50">
-        <div
-          onClick={(e) => e.stopPropagation()}
-          className={styles.addSection}>
-          <div className={styles.header}>
-            <Image width={16} height={16} src="/icons/zarbdar.svg" />
-            <p>Add new section</p>
-            <X
-              onClick={() => setShowAddSection(false)}
-              color="#194BFB"
-              className="cursor-pointer"
-            />
-          </div>
-          <div className={styles.blocks}>
-            {blocks.map((b) => (
-              <div
-                className={styles.block}
-                onClick={() => {
-                  setSection(b.type);
-                  setShowAddSection(false);
-                }}>
-                <Image width={16} height={16} src={b.logo} />
-                <div>
-                  <p>{b.name}</p>
-                  <p>{b.description}</p>
+      {/* add section modal page */}
+      <AnimatePresence>
+        {showAddSection && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={() => setShowAddSection(false)}
+            className="fixed inset-0 w-full h-full bg-black/20 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
+              className={styles.addSection}>
+              <div className={styles.header}>
+                <div className="flex items-center gap-2">
+                  <Image width={20} height={20} src="/icons/zarbdar.svg" alt="" />
+                  <p className="font-semibold text-lg">Add new section</p>
                 </div>
+                <motion.button
+                  whileHover={{ scale: 1.1, rotate: 90 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ duration: 0.2 }}
+                  onClick={() => setShowAddSection(false)}
+                  className="p-1.5 hover:bg-blue-50 rounded-lg transition-colors">
+                  <X size={20} color="#194BFB" />
+                </motion.button>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      {/* end add sectionmodal page */}
+
+              <div className={styles.blocks}>
+                {blocks.map((b, index) => (
+                  <motion.div
+                    key={b.type}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.03, duration: 0.2 }}
+                    whileHover={{ 
+                      scale: 1.02,
+                      boxShadow: "0 8px 24px rgba(25, 75, 251, 0.12)"
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    className={styles.block}
+                    onClick={() => {
+                      setSection(b.type);
+                      setShowAddSection(false);
+                    }}>
+                    <motion.div
+                      whileHover={{ rotate: [0, -10, 10, 0] }}
+                      transition={{ duration: 0.3 }}>
+                      <Image width={40} height={40} src={b.logo} alt={b.name} />
+                    </motion.div>
+                    <div>
+                      <p className="font-semibold text-gray-800">{b.name}</p>
+                      <p className="text-sm text-gray-500">{b.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {/* end add section modal page */}
     </div>
   );
 };
 
 export default AddSection;
-
-// -----------------------------------

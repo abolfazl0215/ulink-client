@@ -139,7 +139,7 @@ const CreateLinkStepOne = ({ setStep }) => {
         <div className="relative w-full mt-[1.5vw] lg:mt-[.5vw]">
           <div className="relative flex items-center">
             {/* Prefix text */}
-            <span className="absolute left-[3vw] lg:left-[1vw] text-[4vw] md:text-[2.5vw] lg:text-[1vw] text-[#C8C8D0] pointer-events-none z-10">
+            <span className="absolute left-[3vw] lg:left-[1vw] text-[3.5vw] md:text-[2.5vw] lg:text-[1vw] text-[#C8C8D0] pointer-events-none z-10">
               ulink-client.onrender.com/
             </span>
 
@@ -154,7 +154,7 @@ const CreateLinkStepOne = ({ setStep }) => {
         border
         ${linkError ? "border-[#ef4444]" : "border-[#E5E7EA]"}
         p-[3vw] lg:p-[1vw]
-        pl-[34vw] md:pl-[23vw] lg:pl-[8.5vw]
+        pl-[48vw]  lg:pl-[14vw]
         outline-none
         focus:border-[#3b82f6]
         focus:ring-1

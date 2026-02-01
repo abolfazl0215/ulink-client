@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-import styles from "./step2.module.css";
 import Image from "next/image";
 import { useState } from "react";
 import { useRef } from "react";
@@ -8,7 +7,15 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import BeatLoader from "react-spinners/BeatLoader";
 import { v4 as uuidv4 } from "uuid";
-import imageCompression from "browser-image-compression";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  X,
+  GripVertical,
+  Trash2,
+  Upload,
+  Link as LinkIcon,
+  Sparkles,
+} from "lucide-react";
 
 const Step2 = ({
   setStep,
@@ -20,11 +27,9 @@ const Step2 = ({
   setUpdate,
 }) => {
   const [isDragging, setIsDragging] = useState();
-
   const [showSelectSection, setShowSelectSection] = useState();
   const [title, setTitle] = useState("");
   const [isSubmit, setIsSubmit] = useState(false);
-
   const [loading, setLoading] = useState(false);
   const [preview, setPreview] = useState();
   const [image, setImage] = useState();
@@ -173,17 +178,6 @@ const Step2 = ({
       return toast.error("Please enter the required fields");
     }
 
-    // const options = {
-    //   maxSizeMB: 1,
-    //   maxWidthOrHeight: 500,
-    //   useWebWorker: true,
-    // };
-
-    // const compressedFile = await imageCompression(image, options);
-    // const base64 = await imageCompression.getDataUrlFromFile(
-    //   compressedFile,
-    // );
-
     try {
       const formData = new FormData();
       formData.append("image", image);
@@ -223,28 +217,48 @@ const Step2 = ({
   };
 
   return (
-    <div className={styles.step2} style={{ top: "2vh" }}>
-      <div className={styles.header}>
-        <Image width={16} height={16} src="/icons/zarbdar.svg" />
-        <p>Banner</p>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.2 }}
+      className="fixed top-[2vh] right-[2%] w-[96%] md:right-[35%] md:w-[30%] h-[96vh] bg-[#ededed] z-[9000] rounded-[5vw] md:rounded-[2vw] shadow-[0_0_50px_rgba(0,0,0,0.714)] border-t border-gray-400 overflow-hidden">
+      {/* Header */}
+      <div className="flex justify-between items-center px-[2vw] md:px-8 h-[8vh] bg-white text-2xl font-semibold border-b border-gray-300">
+        <div className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/30"></div>
+          <h2 className="text-xl font-bold text-gray-800">Banner</h2>
+        </div>
 
-        <Image
+        <motion.button
+          whileHover={{ scale: 1.1, rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.2 }}
           onClick={() => setSection("")}
-          width={16}
-          height={16}
-          src="/icons/zarbdar.svg"
-        />
+          className="p-2 hover:bg-red-50 rounded-lg transition-colors group">
+          <X
+            size={20}
+            className="text-gray-600 group-hover:text-red-500 transition-colors"
+          />
+        </motion.button>
       </div>
 
-      <form className={styles.form} ref={containerRef}>
+      {/* Form */}
+      <form
+        ref={containerRef}
+        className="px-[3vw] md:px-8 pt-4 h-[83vh] overflow-y-scroll pb-[200px]">
         {selectedMessenger.map((d, index) => (
-          <div
-            className={
+          <motion.div
+            key={d.id}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.05 }}
+            className={`bg-white rounded-lg md:rounded-3xl overflow-hidden mb-4 ${
               (!link || !image) && isSubmit
-                ? `${styles.formBlock} ${styles.redBorder}`
-                : styles.formBlock
-            }
-            key={d.id}>
+                ? "border-2 border-red-500 bg-red-50"
+                : "border border-gray-300"
+            }`}>
+            {/* Block Header */}
             <div
               dir="rtl"
               onClick={() => {
@@ -256,183 +270,265 @@ const Step2 = ({
                   setShowSelectSection(obj);
                 }
               }}
-              className={styles.formBlockHeader}>
-              <div>
-                <div
-                  className={
-                    (!link || !image) && isSubmit ? styles.redBgc : ""
-                  }
-                  onPointerDown={(e) => {
-                    // window.innerWidth < 640
-                    //   ?
-                    dragStart(e, index);
-                    // : null;
-                  }}>
-                  <Image
-                    width={16}
-                    height={16}
-                    src="/icons/dragWhite.svg"
-                    style={{ userSelect: "none", cursor: "pointer" }}
-                    draggable="false"
-                  />
-                </div>
-                <p>{d.faName}</p>
+              className="flex justify-between items-center pl-12 border-b border-gray-300 cursor-pointer">
+              <div className="flex items-center gap-3">
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  className={`p-4 cursor-grab active:cursor-grabbing ${
+                    (!link || !image) && isSubmit
+                      ? "bg-red-600"
+                      : "bg-[#2ac27c]"
+                  }`}
+                  onPointerDown={(e) => dragStart(e, index)}>
+                  <GripVertical size={18} className="text-white" />
+                </motion.div>
+                <p className="font-semibold text-gray-700 text-lg">
+                  {d.faName}
+                </p>
               </div>
-              {index === 0 ? (
-                ""
-              ) : (
-                <Image
-                  width={16}
-                  height={16}
-                  src="/icons/redTrash.svg"
-                  onClick={() => handleDelete(d.id)}
-                />
+
+              {index !== 0 && (
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDelete(d.id);
+                  }}
+                  className="p-2 hover:bg-red-50 rounded-lg transition-colors group">
+                  <Trash2
+                    size={18}
+                    className="text-gray-400 group-hover:text-red-500 transition-colors"
+                  />
+                </motion.button>
               )}
             </div>
 
-            {showSelectSection && showSelectSection[d.id] ? (
-              <div className={styles.formBlockBody}>
-                <label>Banner link:</label>
-                <input
-                  type="text"
-                  onChange={(e) => setLink(e.target.value)}
-                  value={link}
-                  placeholder="Enter your banner link..."
-                />
-                {!link && isSubmit ? (
-                  <span className={styles.errorText}>
-                    Please enter your banner link
-                  </span>
-                ) : (
-                  ""
-                )}
-
-                <label htmlFor="imgInput" className={styles.imgLabel}>
-                  Banner image
-                </label>
-                <button
-                  onClick={(e) => {
-                    e.preventDefault();
-                    fileInputRef.current.click();
-                  }}
-                  className={styles.button}>
-                  {preview ? (
-                    <Image width={200} height={200} src={preview} />
-                  ) : (
-                    "Upload an image for the banner (click)"
+            {/* Block Body */}
+            <AnimatePresence>
+              {showSelectSection && showSelectSection[d.id] && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="p-4 pb-6">
+                  {/* Link Input */}
+                  <div className="flex items-center gap-2 mb-2">
+                    <LinkIcon size={16} className="text-blue-500" />
+                    <label className="text-sm font-semibold text-gray-700">
+                      Banner link:
+                    </label>
+                  </div>
+                  <input
+                    type="text"
+                    onChange={(e) => setLink(e.target.value)}
+                    value={link}
+                    placeholder="Enter your banner link..."
+                    className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 transition-all outline-none text-base"
+                  />
+                  {!link && isSubmit && (
+                    <motion.span
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-sm text-red-500 mt-2 block">
+                      Please enter your banner link
+                    </motion.span>
                   )}
-                </button>
-                {!image && isSubmit ? (
-                  <p className={styles.errorText}>
-                    This field is required
-                  </p>
-                ) : (
-                  ""
-                )}
-                <input
-                  id="imgInput"
-                  type="file"
-                  style={{ display: "none" }}
-                  ref={fileInputRef}
-                  accept="image/*"
-                  name="file"
-                  onChange={(e) => {
-                    const file = e.target.files[0];
-                    if (
-                      file &&
-                      file.type.substring(0, 5) == "image"
-                    ) {
-                      setImage(file);
-                    } else {
-                      setImage(null);
-                    }
-                  }}
-                />
-              </div>
-            ) : (
-              ""
-            )}
-          </div>
+
+                  {/* Image Upload */}
+                  <div className="flex items-center gap-2 mb-2 mt-6">
+                    <Upload size={16} className="text-blue-500" />
+                    <label className="text-sm font-semibold text-gray-700">
+                      Banner image
+                    </label>
+                  </div>
+                  <motion.button
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.99 }}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      fileInputRef.current.click();
+                    }}
+                    className="w-full min-h-[200px] border-2 border-dashed border-gray-300 rounded-xl hover:border-blue-500 hover:bg-blue-50/50 transition-all overflow-hidden group relative">
+                    {preview ? (
+                      <div className="relative w-full h-full">
+                        <Image
+                          width={400}
+                          height={200}
+                          src={preview}
+                          alt="Preview"
+                          className="w-full h-full object-cover rounded-lg"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <p className="text-white font-medium">
+                            Click to change image
+                          </p>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="flex flex-col items-center justify-center gap-3 text-gray-500">
+                        <Upload
+                          size={40}
+                          className="text-gray-400 group-hover:text-blue-500 transition-colors"
+                        />
+                        <p className="font-medium">
+                          Upload an image for the banner
+                        </p>
+                        <p className="text-sm text-gray-400">
+                          Click or drag and drop
+                        </p>
+                      </div>
+                    )}
+                  </motion.button>
+                  {!image && isSubmit && (
+                    <motion.p
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-sm text-red-500 mt-2">
+                      This field is required
+                    </motion.p>
+                  )}
+                  <input
+                    id="imgInput"
+                    type="file"
+                    style={{ display: "none" }}
+                    ref={fileInputRef}
+                    accept="image/*"
+                    name="file"
+                    onChange={(e) => {
+                      const file = e.target.files[0];
+                      if (
+                        file &&
+                        file.type.substring(0, 5) == "image"
+                      ) {
+                        setImage(file);
+                      } else {
+                        setImage(null);
+                      }
+                    }}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.div>
         ))}
 
-        <div className={styles.animations}>
-          <p>Animation</p>
-          <div
-            style={
-              animation == "" ? { border: "3px solid #ffbb00" } : {}
-            }
-            onClick={() => setAnimation("")}>
-            No Animation
+        {/* Animations Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="w-full mb-4 ">
+          {/* Header */}
+          <div className="flex items-center gap-2 mb-3 ">
+            <Sparkles size={18} className="text-purple-500" />
+            <p className="font-semibold text-gray-700">Animation</p>
           </div>
-          <div
-            style={
-              animation == "blinking_element"
-                ? { border: "3px solid #ffbb00" }
-                : {}
-            }
-            onClick={() => setAnimation("blinking_element")}
-            className={styles.blinking_element}>
-            1
+
+          {/* Animation Buttons */}
+          <div className="w-full flex flex-wrap  justify-between">
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setAnimation("")}
+              className={`w-[48%] mb-2 p-4 text-center bg-gradient-to-tr from-[#0272f1] to-[#2f90ff] text-white rounded-xl cursor-pointer font-medium relative overflow-hidden ${
+                animation == "" ? "ring-4 ring-yellow-400" : ""
+              }`}>
+              No Animation
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setAnimation("blinking_element")}
+              className={`w-[48%] mb-2 p-4 text-center bg-gradient-to-tr from-[#0272f1] to-[#2f90ff] text-white rounded-xl cursor-pointer font-medium relative overflow-hidden ${
+                animation == "blinking_element"
+                  ? "ring-4 ring-yellow-400"
+                  : ""
+              }`}>
+              <span className="relative z-10">1</span>
+              <span className="absolute top-[-20%] left-[-20%] w-[20%] h-[160%] bg-white rotate-[20deg] animate-[blink_3s_infinite_linear]" />
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setAnimation("shake")}
+              className={`w-[48%] mb-2 p-4 text-center bg-gradient-to-tr from-[#0272f1] to-[#2f90ff] text-white rounded-xl cursor-pointer font-medium animate-[shake_3s_infinite] ${
+                animation == "shake" ? "ring-4 ring-yellow-400" : ""
+              }`}>
+              2
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setAnimation("rotate")}
+              className={`w-[48%] mb-2 p-4 text-center bg-gradient-to-tr from-[#0272f1] to-[#2f90ff] text-white rounded-xl cursor-pointer font-medium animate-[rotate_3s_infinite] ${
+                animation == "rotate" ? "ring-4 ring-yellow-400" : ""
+              }`}>
+              3
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setAnimation("shakeX")}
+              className={`w-[48%] mb-2 p-4 text-center bg-gradient-to-tr from-[#0272f1] to-[#2f90ff] text-white rounded-xl cursor-pointer font-medium animate-[shakeX_3s_infinite] ${
+                animation == "shakeX" ? "ring-4 ring-yellow-400" : ""
+              }`}>
+              4
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              onClick={() => setAnimation("shakeY")}
+              className={`w-[48%] mb-2 p-4 text-center bg-gradient-to-tr from-[#0272f1] to-[#2f90ff] text-white rounded-xl cursor-pointer font-medium animate-[shakeY_3s_infinite] ${
+                animation == "shakeY" ? "ring-4 ring-yellow-400" : ""
+              }`}>
+              5
+            </motion.div>
           </div>
-          <div
-            style={
-              animation == "shake"
-                ? { border: "3px solid #ffbb00" }
-                : {}
-            }
-            onClick={() => setAnimation("shake")}>
-            2
-          </div>
-          <div
-            style={
-              animation == "rotate"
-                ? { border: "3px solid #ffbb00" }
-                : {}
-            }
-            onClick={() => setAnimation("rotate")}>
-            3
-          </div>
-          <div
-            style={
-              animation == "shakeX"
-                ? { border: "3px solid #ffbb00" }
-                : {}
-            }
-            onClick={() => setAnimation("shakeX")}>
-            4
-          </div>
-          <div
-            style={
-              animation == "shakeY"
-                ? { border: "3px solid #ffbb00" }
-                : {}
-            }
-            onClick={() => setAnimation("shakeY")}>
-            5
-          </div>
-        </div>
+        </motion.div>
       </form>
 
-      <div className={styles.buttonContainer}>
-        <button onClick={() => setSection("")}>Cancel</button>
+      {/* Action Buttons */}
+      <div className="fixed bottom-4 right-[2vw] w-[96vw]  md:right-[35vw] md:w-[30vw] px-4 py-3 z-[10000] bg-white flex justify-end border-t border-gray-300 rounded-b-[2vw]">
+        <motion.button
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
+          onClick={() => setSection("")}
+          className="px-6 py-3 rounded-3xl border-2 border-gray-300 text-blue-600 font-semibold hover:bg-gray-50 transition-all mr-4">
+          Cancel
+        </motion.button>
         {!loading ? (
-          <button
+          <motion.button
+            whileHover={{
+              scale: 1.02,
+              boxShadow: "0 8px 24px rgba(25, 75, 251, 0.3)",
+            }}
+            whileTap={{ scale: 0.98 }}
             type="submit"
             onClick={() => {
               setIsSubmit(true);
               handleSubmit();
-            }}>
+            }}
+            className="px-6 py-3 rounded-3xl bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold shadow-lg shadow-blue-500/30 transition-all">
             Save
-          </button>
+          </motion.button>
         ) : (
           <button
             type="submit"
-            style={{ display: "flex", alignItems: "center" }}>
+            className="px-6 py-3 rounded-3xl bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold flex items-center justify-center">
             <BeatLoader color={"#fff"} loading={true} size={10} />
           </button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
