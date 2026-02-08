@@ -158,7 +158,7 @@ function AnimatedLanding() {
             <motion.h1
               variants={fadeUp}
               transition={smoothTransition}
-              className="text-4xl md:text-5xl lg:text-6xl font-black text-center lg:text-left leading-tight mb-4">
+              className="text-4xl md:text-5xl lg:text-5xl font-black text-center lg:text-left leading-tight mb-4">
               <span className="bg-gradient-to-r from-slate-900 via-emerald-800 to-slate-900 bg-clip-text text-transparent">
                 Create and customize
               </span>
