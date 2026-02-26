@@ -221,7 +221,7 @@ const Step2 = ({
       try {
         console.log("address :", address);
         const res = await axios.post(
-          "https://ulinkk-back.onrender.com/addMessenger",
+          "https://ulink-back-431g.onrender.com/addMessenger",
           {
             address: address,
             type: "messenger",
@@ -359,8 +359,8 @@ const Step2 = ({
                   {d.social === "whatsapp"
                     ? "Your WhatsApp Number"
                     : d.social === "telegram"
-                    ? "Your Telegram ID"
-                    : `Your ${d.name} Link`}
+                      ? "Your Telegram ID"
+                      : `Your ${d.name} Link`}
                 </label>
                 <input
                   type="url"
@@ -378,8 +378,8 @@ const Step2 = ({
                   {d.social === "whatsapp"
                     ? "Make sure to enter only your WhatsApp number, not the full link"
                     : d.social === "telegram"
-                    ? "Make sure to enter only your Telegram ID, not the full link"
-                    : `Enter your ${d.name} link. Make sure to enter the full link, not just an ID or phone number.`}
+                      ? "Make sure to enter only your Telegram ID, not the full link"
+                      : `Enter your ${d.name} link. Make sure to enter the full link, not just an ID or phone number.`}
                 </p>
                 {d.social === "whatsapp" ? (
                   <>

@@ -169,7 +169,7 @@ const yekan = localFont({
 
 async function getData() {
   const res = await fetch(
-    "https://ulinkk-back.onrender.com/getLinks",
+    "https://ulink-back-431g.onrender.com/getLinks",
     {
       cache: "no-store",
       // next: { revalidate: 15 }, // باعث میشه داده ها تا 15 ثانیه کش شوند
@@ -476,15 +476,15 @@ const Page = async ({ params }) => {
             "estedad"
               ? estedad.className
               : data.links.find((d) => d.address == params.slug)
-                  .font == "mikhak"
-              ? mikhak.className
-              : data.links.find((d) => d.address == params.slug)
-                  .font == "aseman"
-              ? aseman.className
-              : data.links.find((d) => d.address == params.slug)
-                  .font == "yekan"
-              ? yekan.className
-              : ""
+                    .font == "mikhak"
+                ? mikhak.className
+                : data.links.find((d) => d.address == params.slug)
+                      .font == "aseman"
+                  ? aseman.className
+                  : data.links.find((d) => d.address == params.slug)
+                        .font == "yekan"
+                    ? yekan.className
+                    : ""
           }`}>
           {data.links
             .find((d) => d.address == params.slug)
@@ -505,10 +505,10 @@ const Page = async ({ params }) => {
                               color: "#fff",
                             }
                           : theme == "bg_animation_3"
-                          ? {
-                              color: "#fff",
-                            }
-                          : {}
+                            ? {
+                                color: "#fff",
+                              }
+                            : {}
                       }>
                       {s.title}
                     </h1>
@@ -519,14 +519,14 @@ const Page = async ({ params }) => {
                               color: "#fff",
                             }
                           : theme == "bg_animation_3"
-                          ? {
-                              color: "#fff",
-                            }
-                          : theme == "bg_animation_2"
-                          ? {
-                              color: "#deeafc",
-                            }
-                          : {}
+                            ? {
+                                color: "#fff",
+                              }
+                            : theme == "bg_animation_2"
+                              ? {
+                                  color: "#deeafc",
+                                }
+                              : {}
                       }>
                       {s.subTitle}
                     </p>
@@ -563,7 +563,7 @@ const Page = async ({ params }) => {
               </>
             ))}
           <a
-            href="https://ulinkk-back.onrender.com"
+            href="https://ulink-back-431g.onrender.com"
             className={styles.createdByMe}>
             <span>Created by ULink</span>
           </a>

@@ -89,7 +89,7 @@ function LoginPage() {
 
   useEffect(() => {
     axios
-      .get("https://ulinkk-back.onrender.com/me", {
+      .get("https://ulink-back-431g.onrender.com/me", {
         withCredentials: true,
       })
       .then((res) => {
@@ -108,7 +108,7 @@ function LoginPage() {
     try {
       const result = await signInWithPopup(auth, provider);
       const response = await axios.post(
-        "https://ulinkk-back.onrender.com/login",
+        "https://ulink-back-431g.onrender.com/login",
         { email: result.user.email },
         {
           headers: { "Content-Type": "application/json" },

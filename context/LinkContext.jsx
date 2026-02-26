@@ -65,7 +65,7 @@ const LinkContextComponent = ({ children }) => {
 
       // آپلود تصویر
       const response = await axios.post(
-        "https://ulinkk-back.onrender.com/upload2",
+        "https://ulink-back-431g.onrender.com/upload2",
         formData, // فایل + سایر فیلدها
         {
           timeout: 30000,
@@ -81,7 +81,7 @@ const LinkContextComponent = ({ children }) => {
 
       // ساخت لینک جدید
       const response2 = await axios.post(
-        "https://ulinkk-back.onrender.com/newLink",
+        "https://ulink-back-431g.onrender.com/newLink",
         {
           userId: loginContext.user._id,
           title,

@@ -43,7 +43,7 @@ const Prices = () => {
       // const userid = jwtDecode(Cookies.get("user"));
       try {
         const response = await axios.post(
-          "https://ulinkk-back.onrender.com/addToCart",
+          "https://ulink-back-431g.onrender.com/addToCart",
           {
             userId: Cookies.get("user"),
             plan,

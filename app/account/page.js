@@ -38,7 +38,7 @@ const Account = () => {
       setLoadingLinks(true);
       axios
         .post(
-          "https://ulinkk-back.onrender.com/getMyLinks",
+          "https://ulink-back-431g.onrender.com/getMyLinks",
           { links: linksPure },
           {
             headers: { "Content-Type": "application/json" },
@@ -62,7 +62,7 @@ const Account = () => {
   const checkToken = async () => {
     try {
       const response = await axios.get(
-        "https://ulinkk-back.onrender.com/checkExistUser",
+        "https://ulink-back-431g.onrender.com/checkExistUser",
         {
           withCredentials: true,
         },

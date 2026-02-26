@@ -266,7 +266,7 @@ const Step2 = ({
   const handleDeleteBlock = async () => {
     try {
       const response = await axios.post(
-        "https://ulinkk-back.onrender.com/deleteItem",
+        "https://ulink-back-431g.onrender.com/deleteItem",
         {
           address,
           id: editContext.item.uniqueId,
@@ -330,7 +330,7 @@ const Step2 = ({
             let response;
             try {
               response = await axios.post(
-                "https://ulinkk-back.onrender.com/upload2",
+                "https://ulink-back-431g.onrender.com/upload2",
                 formData,
               );
             } catch (error) {
@@ -352,7 +352,7 @@ const Step2 = ({
         console.log("step22222");
 
         const res = await axios.post(
-          "https://ulinkk-back.onrender.com/setEdit",
+          "https://ulink-back-431g.onrender.com/setEdit",
           {
             uniqueId: editContext.item.uniqueId,
             address,

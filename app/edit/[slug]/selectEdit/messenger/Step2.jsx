@@ -258,7 +258,7 @@ const Step2 = ({
       try {
         console.log("address:", address);
         const res = await axios.post(
-          "https://ulinkk-back.onrender.com/setEdit",
+          "https://ulink-back-431g.onrender.com/setEdit",
           {
             uniqueId: editContext.item.uniqueId,
             address: address,
@@ -283,7 +283,7 @@ const Step2 = ({
   const handleDeleteBlock = async () => {
     try {
       const response = await axios.post(
-        "https://ulinkk-back.onrender.com/deleteItem",
+        "https://ulink-back-431g.onrender.com/deleteItem",
         {
           address,
           id: editContext.item.uniqueId,
@@ -410,8 +410,8 @@ const Step2 = ({
                   {d.social == "whatsapp"
                     ? "Your WhatsApp number"
                     : d.social == "telegram"
-                    ? "Your Telegram ID"
-                    : `Your ${d.faName} link`}
+                      ? "Your Telegram ID"
+                      : `Your ${d.faName} link`}
                 </label>
                 <input
                   type="url"
@@ -427,8 +427,8 @@ const Step2 = ({
                   {d.social == "whatsapp"
                     ? "Enter only your WhatsApp number, not the full link"
                     : d.social == "telegram"
-                    ? "Enter only your Telegram ID, not the full link"
-                    : `Enter your ${d.faName} link. Make sure it's the full link, not just an ID or phone number.`}
+                      ? "Enter only your Telegram ID, not the full link"
+                      : `Enter your ${d.faName} link. Make sure it's the full link, not just an ID or phone number.`}
                 </p>
 
                 {d.social == "whatsapp" && (

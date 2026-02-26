@@ -228,7 +228,7 @@ const Drag = ({ params }) => {
   const getData = async () => {
     console.log("get starttt");
     const response = await axios.post(
-      "https://ulinkk-back.onrender.com/getLink",
+      "https://ulink-back-431g.onrender.com/getLink",
       {
         link: params.slug,
       },
@@ -271,7 +271,7 @@ const Drag = ({ params }) => {
   const checkToken = async () => {
     try {
       const response = await axios.get(
-        "https://ulinkk-back.onrender.com/checkExistUser",
+        "https://ulink-back-431g.onrender.com/checkExistUser",
         {
           withCredentials: true,
         },
@@ -338,7 +338,7 @@ const Drag = ({ params }) => {
 
     try {
       const res = await axios.post(
-        "https://ulinkk-back.onrender.com/setDrag",
+        "https://ulink-back-431g.onrender.com/setDrag",
         {
           address: params.slug,
           sections: updatedItems,

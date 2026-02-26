@@ -169,7 +169,7 @@ const yekan = localFont({
 
 async function getData() {
   const res = await fetch(
-    "https://ulinkk-back.onrender.com/getLinks",
+    "https://ulink-back-431g.onrender.com/getLinks",
     {
       cache: "no-store",
       // next: { revalidate: 15 },
@@ -459,12 +459,12 @@ const ShowEdits = async ({ data }) => {
             data.font == "estedad"
               ? estedad.className
               : data.font == "mikhak"
-              ? mikhak.className
-              : data.font == "aseman"
-              ? aseman.className
-              : data.font == "yekan"
-              ? yekan.className
-              : ""
+                ? mikhak.className
+                : data.font == "aseman"
+                  ? aseman.className
+                  : data.font == "yekan"
+                    ? yekan.className
+                    : ""
           }`}>
           {data.sections.map((s) => (
             <>
@@ -479,10 +479,10 @@ const ShowEdits = async ({ data }) => {
                             color: "#fff",
                           }
                         : theme == "bg_animation_3"
-                        ? {
-                            color: "#fff",
-                          }
-                        : {}
+                          ? {
+                              color: "#fff",
+                            }
+                          : {}
                     }>
                     {s.title}
                   </h1>
@@ -493,14 +493,14 @@ const ShowEdits = async ({ data }) => {
                             color: "#fff",
                           }
                         : theme == "bg_animation_3"
-                        ? {
-                            color: "#fff",
-                          }
-                        : theme == "bg_animation_2"
-                        ? {
-                            color: "#deeafc",
-                          }
-                        : {}
+                          ? {
+                              color: "#fff",
+                            }
+                          : theme == "bg_animation_2"
+                            ? {
+                                color: "#deeafc",
+                              }
+                            : {}
                     }>
                     {s.subTitle}
                   </p>

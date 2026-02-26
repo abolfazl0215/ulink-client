@@ -273,7 +273,7 @@ const Step2 = ({
           formData.append("image", s.imageUrl);
 
           const response = await axios.post(
-            "https://ulinkk-back.onrender.com/upload2",
+            "https://ulink-back-431g.onrender.com/upload2",
             formData,
           );
           const copy = [...selectedMessenger];
@@ -311,7 +311,7 @@ const Step2 = ({
             formData.append("image", s.imageUrl);
 
             const response = await axios.post(
-              "https://ulinkk-back.onrender.com/upload2",
+              "https://ulink-back-431g.onrender.com/upload2",
               formData,
             );
 
@@ -326,7 +326,7 @@ const Step2 = ({
         console.log("step22222");
 
         const res = await axios.post(
-          "https://ulinkk-back.onrender.com/addMessenger",
+          "https://ulink-back-431g.onrender.com/addMessenger",
           {
             address,
             type: "slider",

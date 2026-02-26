@@ -51,7 +51,7 @@ const Step2 = ({
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://ulinkk-back.onrender.com/setEdit",
+        "https://ulink-back-431g.onrender.com/setEdit",
         {
           uniqueId: editContext.item.uniqueId,
           address,
@@ -76,7 +76,7 @@ const Step2 = ({
   const handleDeleteBlock = async () => {
     try {
       const response = await axios.post(
-        "https://ulinkk-back.onrender.com/deleteItem",
+        "https://ulink-back-431g.onrender.com/deleteItem",
         {
           address,
           id: editContext.item.uniqueId,

@@ -178,7 +178,7 @@ const Step2 = ({
       setLoading(true);
       try {
         const res = await axios.post(
-          "https://ulinkk-back.onrender.com/addMessenger",
+          "https://ulink-back-431g.onrender.com/addMessenger",
           {
             address,
             type: "call",
@@ -314,12 +314,12 @@ const Step2 = ({
                   {d.type == "sms"
                     ? "SMS Number"
                     : d.type == "tell"
-                    ? "Mobile Number"
-                    : d.type == "phoneNumber"
-                    ? "Phone Number"
-                    : d.type == "email"
-                    ? "Email"
-                    : ""}
+                      ? "Mobile Number"
+                      : d.type == "phoneNumber"
+                        ? "Phone Number"
+                        : d.type == "email"
+                          ? "Email"
+                          : ""}
                 </label>
                 <input
                   type="url"

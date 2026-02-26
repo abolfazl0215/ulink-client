@@ -161,7 +161,7 @@ const Step2 = ({
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://ulinkk-back.onrender.com/addMessenger",
+        "https://ulink-back-431g.onrender.com/addMessenger",
         {
           address,
           type: "link",
